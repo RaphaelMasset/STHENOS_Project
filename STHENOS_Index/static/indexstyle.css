@@ -1,0 +1,41 @@
+.containerIndexHexa{
+  margin: 30px 10px;
+  display: grid;
+  grid-template-columns: repeat(6, 90px); /* 6 columns, each 100px wide */
+  grid-template-rows: repeat(6, 81px); /* 10 rows, each 100px tall */
+  gap: 1px; /* Optional: Space between grid items */
+}
+
+.hexaIndex {
+  font-size: 18px;
+  width: 180px; /* Width of the hexagon */
+  height: 180px; /* Width of the hexagon */
+  clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+}
+
+.hexa1 { grid-column: 2; grid-row: 1; }
+.hexa2 { grid-column: 4; grid-row: 1; }
+.hexa3 { grid-column: 1; grid-row: 3; }
+.hexa4 { grid-column: 3; grid-row: 3; }
+.hexa5 { grid-column: 5; grid-row: 3; }
+.hexa6 { grid-column: 2; grid-row: 5; }
+.hexa7 { grid-column: 4; grid-row: 5; }
+.hexa8 { grid-column: 6; grid-row: 5; }
+
+@media (max-width: 800px) { 
+  .containerIndexHexa{
+    display: flex;
+    gap:10px;
+    flex-wrap: wrap;
+    justify-content: center; 
+  }
+}
+
+.form-group-container{
+  margin: 25px;
+}
+
+p, p>a{
+  
+  color: #cebbaa;
+}

@@ -1,0 +1,25 @@
+{% load static %}
+
+{% block content %}
+
+<nav class="containerSharedIndex">
+    <div id="allpostsNav" class="hexa forumNav {% if current_forum_page == 'allposts' %}forumNavActive{% endif %}">
+        <a href="{% url 'network' %}">All posts</a>
+    </div>
+    <div id="followingNav" class="hexa forumNav {% if current_forum_page == 'following' %}forumNavActive{% endif %}">
+        <a href="{% if user.is_authenticated %}{% url 'following' %}{% endif %}">Following</a>
+    </div>
+    <div id="inboxNav" class="hexa forumNav {% if current_forum_page == 'inbox' %}forumNavActive{% endif %}">
+        <a>Inbox</a>
+    </div>
+    <div id="sentNav" class="hexa forumNav {% if current_forum_page == 'sent' %}forumNavActive{% endif %}">
+        <a>Sent</a>
+    </div>
+    <div id="archivedNav" class="hexa forumNav {% if current_forum_page == 'archive' %}forumNavActive{% endif %}">
+        <a href="{% if user.is_authenticated %}{% url 'archive' %}{% endif %}">Saved posts</a>
+    </div>
+    <div id="composeNav" class="hexa forumNav {% if current_forum_page == 'messages' %}forumNavActive{% endif %}">
+        <a>New Message</a>
+    </div>
+</nav>
+{% endblock %}

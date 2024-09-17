@@ -1,0 +1,78 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+h3 {
+    color: #444;
+}
+
+h5 {
+    margin-top: 10px;
+}
+
+/* Container Styles */
+.text-container {
+    max-width: 80vw;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input-container {  
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.input-group{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    max-width: 450px;
+}
+
+.resultscalc{
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.result-container{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+code{
+    color: black ;
+}
+
+h5{
+    text-decoration: underline;
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+.img-container{
+    position: relative;
+    display: inline-block; 
+    margin: auto;
+    border: black solid 3px;
+}
+
+.cursor {
+    position: absolute;
+    top: 36px; /* 391  16 -40       14.7916   Positionne le curseur au-dessus de l'image */
+    left: 0; /* Positionne le curseur au bord gauche de l'image */
+    width: 30px; /* Ajuste la largeur du curseur selon tes besoins */
+    height: auto; /* Conserve les proportions du curseur */
+    transform: translateX(-100%) rotate(135deg); /* Déplace le curseur vers la gauche et le fait pivoter */
+    transform-origin: center; /* Définit le point de rotation au centre du curseur */
+    pointer-events: none; /* Assure que le curseur n'interfère pas avec les clics */
+}

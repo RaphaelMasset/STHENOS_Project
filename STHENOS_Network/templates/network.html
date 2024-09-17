@@ -1,0 +1,53 @@
+{% extends "STHENOS.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'networkStyles.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% include "headers.html" %}
+    {% include "navBar.html" %}
+    {% include "navBarForum.html" %}
+
+    {% if user.is_authenticated and current_forum_page == 'allposts' %} 
+        <div id="newPost" class="text-container post">    
+            <h3>New Post</h3>       
+            <form id="compose-form">
+                <textarea class="form-control" id="compose-body" placeholder="type your new post here"></textarea>
+                <input type="submit" class="btn btn-primary"/>
+            </form>
+        </div>
+    {% endif %}
+
+    {% if current_forum_page == 'allposts' or  current_forum_page == 'following' or  current_forum_page == 'archive' %} 
+        {% include 'post.html'%}
+    {% endif %}
+
+    <div id="emails-view">
+    </div>
+    <div id="emails-view2">
+    </div>
+
+    <div class="text-container post" id="compose-view" style="display: none;">
+        <h3>New Email</h3>
+        <form id="compose-form-messages">
+            <div class="inputs">
+                <div class="input-titles">
+                    <div class="input-title">From:</div>
+                    <div class="input-title">To:</div>
+                    <div class="input-title">Subejct:</div>
+                </div>
+                <div class="headers-mail">
+                    <input disabled class="form-control" value="{{ request.user.email }}">
+                    <input id="compose-recipients" class="form-control">
+                    <input class="form-control" id="compose-subject" >
+                </div>
+            </div>
+            <textarea class="form-control" id="compose-body-emails" placeholder="Body"></textarea>
+            <input type="submit" class="btn btn-primary"/>
+        </form>
+    </div>
+
+{% endblock %}
+

@@ -1,0 +1,30 @@
+{% extends "STHENOS.html" %}
+{% load static %}
+{% load leaflet_tags %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'map.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'groupedlayercontrol/leaflet.groupedlayercontrol.min.css'%}">
+<link rel="stylesheet" type="text/css" href="{% static 'routing/dist/leaflet-routing-machine.css'%}">
+{% endblock %}
+
+{% block content %}
+{% include "headers.html" %}
+{% include "navBar.html" %}
+
+<script defer src="{% static 'map.js' %}"></script>
+<script src="{% static 'dist/leaflet.ajax.js' %}"></script>
+<script src="{% static 'groupedlayercontrol/leaflet.groupedlayercontrol.min.js' %}"></script>
+
+<script src="{% static 'routing/dist/leaflet-routing-machine.js' %}"></script>
+
+
+<div class="text-container map">
+    {% leaflet_map "gis" callback="window.our_layers"%}
+</div>
+
+{% endblock %}
+
+
+
+

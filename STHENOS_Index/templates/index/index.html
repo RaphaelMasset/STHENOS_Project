@@ -1,0 +1,29 @@
+{% extends "STHENOS.html" %}
+
+{% load static %}
+{% block styles %}
+    <link href="{% static 'indexstyle.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+{% include "headers.html" %}
+    <div id="title">
+        <span>Online resources for physical development</span>
+    </div>
+  
+    <div class="containerIndexHexa">
+        <a href="{% url 'theory' %}" class="hexa hexaIndex hexa1">THEORY</a>
+        <a href="{% url 'programs' %}" class="hexa hexaIndex hexa2">PROGRAMS</a>
+        <a href="{% url 'calculators' %}" class="hexa hexaIndex hexa3">CALCULATORS</a>
+        <a href="{% url 'game' %}"     class="hexa hexaIndex hexa4">ART & GAMES</a>
+        <a href="{% url 'network' %}" class="hexa hexaIndex hexa5">NETWORK</a>
+        <a href="{% url 'links' %}" class="hexa hexaIndex hexa6">LINKS</a>
+        <a href="{% url 'contact' %}" class="hexa hexaIndex hexa7">CONTACT</a>  
+        <a href="{% url 'map' %}" class="hexa hexaIndex hexa8">MAP</a>  
+    </div>
+
+    {% block scripts %}
+        <script defer src="{% static 'indexstyle.js' %}"></script>
+    {% endblock %}
+
+{% endblock %}

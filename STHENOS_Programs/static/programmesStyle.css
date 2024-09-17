@@ -1,0 +1,80 @@
+
+.program-container-1{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.program-container-2{
+  border: rgb(59, 28, 0) solid;
+  border-radius: 8px;
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+.program-container-2 li{
+  font-size:  12px;
+}
+.table{
+  font-size:  10px;
+}
+
+
+.programsTitle{
+  font-size: 26px;
+  text-align: center;
+  transition: transform 0.1s;
+}
+
+@media (max-width: 440px) { 
+  .programsTitle{
+    font-size:  6vw;
+  }
+}
+
+@media (max-width: 470px) { 
+  .table{
+    font-size:  10px;
+  }
+}
+
+.table th,
+.table td {
+  border-bottom: 1px solid rgb(90, 48, 0); /* Sets border for both table headers and cells */
+  padding: 8px; /* Adds some padding for better readability */
+}
+input{
+  width: 100px;
+}
+
+.program-container-abs2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  height: 400px; /* Set the height to whatever you prefer */
+  width: auto;   /* The width will adjust automatically to maintain aspect ratio */
+  max-width: 1000px;
+}
+
+
+.program-container-abs1{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+p{
+  max-width: 200px;
+  font-size: 12px;
+}

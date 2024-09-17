@@ -1,0 +1,76 @@
+{% extends "STHENOS.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'gamestyle.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include "headers.html" %}
+{% include "navBar.html" %}
+
+
+
+<div class="text-container art">
+    <div class="titleart"><h4>CSS Art - made with CSS and without javascript</h4></div>
+    <div class="artc"> 
+        <div class="listart">
+            <div class="itemart"><img src="{% static 'img/1.jpg' %}" alt=""></div>
+            <div class="itemart"><img src="{% static 'img/2.jpg' %}" alt=""></div>
+            <div class="itemart"><img src="{% static 'img/3.jpg' %}" alt=""></div>
+            <div class="itemart"><img src="{% static 'img/4.jpg' %}" alt=""></div>
+            <div class="itemart"><img src="{% static 'img/5.jpg' %}" alt=""></div>
+            <div class="itemart"><img src="{% static 'img/6.jpg' %}" alt=""></div>
+            <div class="itemart"><img src="{% static 'img/7.jpg' %}" alt=""></div>
+        </div>
+    </div>
+</div>
+
+<div class="text-container art">
+    <div class="titleart"><h4>CSS Art - made with CSS and without javascript</h4></div>
+    <div class="artcube">    
+        <div class="scene">
+            <div class="cube">
+                <div class="face front"><img src="{% static 'img/greekstatues/1.jpg' %}" alt=""></div>
+                <div class="face back"><img src="{% static 'img/greekstatues/2.jpg' %}" alt=""></div>
+                <div class="face right"><img src="{% static 'img/greekstatues/3.jpg' %}" alt=""></div>
+                <div class="face left"><img src="{% static 'img/greekstatues/4.jpg' %}" alt=""></div>
+                <div class="face top"><img src="{% static 'img/greekstatues/5.jpg' %}" alt=""></div>
+                <div class="face bottom"><img src="{% static 'img/greekstatues/6.jpg' %}" alt=""></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-container art">
+    <div class="titleart"><h4>CSS Art - made with CSS and without javascript</h4></div>
+    <div class="banner">
+        <div class="slider" style="--quantity: 10">
+            <div class="item" style="--position: 1"><img src="{% static 'img/greekathlete/1.jpg' %}" alt=""></div>
+            <div class="item" style="--position: 2"><img src="{% static 'img/greekathlete/2.jpg' %}" alt=""></div>
+            <div class="item" style="--position: 3"><img src="{% static 'img/greekathlete/3.jpg' %}" alt=""></div>
+            <div class="item" style="--position: 4"><img src="{% static 'img/greekathlete/4.jpg' %}" alt=""></div>
+            <div class="item" style="--position: 5"><img src="{% static 'img/greekathlete/5.jpg' %}" alt=""></div>
+            <div class="item" style="--position: 6"><img src="{% static 'img/greekathlete/6.jpg' %}" alt=""></div>
+            <div class="item" style="--position: 7"><img src="{% static 'img/greekathlete/7.jpg' %}" alt=""></div>
+            <div class="item" style="--position: 8"><img src="{% static 'img/greekathlete/8.jpg' %}" alt=""></div>
+            <div class="item" style="--position: 9"><img src="{% static 'img/greekathlete/9.jpg' %}" alt=""></div>
+            <div class="item" style="--position: 10"><img src="{% static 'img/greekathlete/10.jpg' %}" alt=""></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="text-container catch">
+    
+    <h4 id="catch-title">Catch me if you can</h4>
+    
+    <div class="catch-container" id="catch-container">
+        <button class="button b4" id="catch" >Click Me</button>
+    </div>
+</div>
+</div>
+
+<script defer src="{% static 'gameScript.js' %}"></script>
+
+{% endblock %}

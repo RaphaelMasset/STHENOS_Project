@@ -1,0 +1,42 @@
+{% extends "STHENOS.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'theoryStyles.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include "headers.html" %}
+{% include "navBar.html" %}
+
+{% for title, descriptions in book_data.items %}
+    <div class="text-container">
+        <h3 class="theoryTitle">{{ title }}</h3>
+            {% for description in descriptions %}
+                <p class="hiddenParagraph">{{ description }}</p>
+            {% endfor %}
+    </div>
+{% endfor %}
+
+<script>
+    document.querySelectorAll('.text-container').forEach(function(container) {
+        container.querySelector('.theoryTitle').addEventListener('click', function() {
+            var textElements = container.querySelectorAll('.hiddenParagraph');
+            var theoryTitleElements = container.querySelectorAll('.theoryTitle');
+            //theoryTitleElements.classList.toggle('turnArrow');
+            textElements.forEach(function(elem) {
+                elem.classList.toggle('show');
+            });
+            theoryTitleElements.forEach(function(elem) {
+                elem.classList.toggle('turnArrow');
+            });
+
+        });
+    });
+
+    const currentPage = "{{ current_page }}";
+        console.log("Current page:", currentPage); // Check if the correct value is logged
+
+</script>
+
+{% endblock %}

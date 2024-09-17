@@ -1,0 +1,71 @@
+{% load static %}
+
+<div id="composepost">
+    {% for post in page_obj %} 
+    <div class="text-container post" data-postid="{{post.id}}" >           
+        <div class="post-header">
+            <a href="{% url 'profile' post.author.username  %}" class="author-name">{{post.author}}</a>
+            {% if post.author.username == user.username %}
+                <button class="edit-button">Edit</button>
+            {% endif %}
+            {% if user.is_authenticated %}
+                <button class="archive-button">
+                    {% if post.isArchived %}
+                        Unarchive
+                    {% else %}
+                        Archive
+                    {% endif %}
+                </button>
+            {% endif %}
+            
+            <div class = "like-container" >
+                <i>{{post.postdate}}</i>
+                <a class="like-button" >  
+                    <img src="{% static 'likeButton.png' %}" alt="Like"/>
+                </a>
+                <div id="like-count" style="display: inline-block">
+                    {% if post.likes.count > 1 %} 
+                        {{post.likes.count}} Likes
+                    {% else %}
+                        {{post.likes.count}} Like
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="post-content">
+            <p class="post-comment">{{post.message}}</p>
+        </div>
+        <div class="edit-content">
+            <textarea class="edit-textarea textarea" ></textarea>
+            <button class="save-button">Save</button>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% if page_obj %}
+
+    <div id="page-view">
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</div>
+{%endif%}
+
+{% block scripts %}
+<script defer src="{% static 'network.js' %}"></script>
+{% endblock %}

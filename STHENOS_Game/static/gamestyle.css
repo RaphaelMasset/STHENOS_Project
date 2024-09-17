@@ -1,0 +1,218 @@
+.text-container.catch {
+  align-items: center; /* Center horizontally */
+  width: 80vw;
+  height: 400px;
+}
+
+.catch-container{
+  display: flex;
+  flex: auto;
+  align-items: center;
+  justify-content: center; /* Center vertically */
+  width: 100%;
+}
+
+.text-container.artc{
+  width: 98%;
+  padding: 0;
+  border-left: 0;
+}
+
+.titleart{
+  color: #f0cfb0;
+  background: -webkit-linear-gradient(white, #556d72);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+}
+
+h5{
+  margin: 0;
+}
+
+.listart{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  gap: 5px;
+  padding: 10px;
+}
+
+.itemart{
+  width: 11.2%;
+  height: fit-content;
+}
+
+.itemart>img{
+  width: 100%;
+}
+
+
+.listart{
+  transform-style: preserve-3d; 
+  transform: perspective(1100px);
+}
+
+.listart .itemart{
+  transition: .5s;
+  filter: brightness(0);
+}
+
+.listart .itemart:hover{
+  filter: brightness(1);
+  transform: scale(1.1) translateZ(200px); 
+}
+
+.listart .itemart:hover + *{
+  filter: brightness(0.6);
+  transform: translateZ(150px) rotateY(40deg);
+}
+
+.listart .itemart:hover + * + *{
+  filter: brightness(0.4);
+  transform: translateZ(70px) rotateY(20deg);
+}
+
+.listart .itemart:hover + * + * + * {
+  filter: brightness(0.2);
+  transform: translateZ(30px) rotateY(10deg);
+}
+
+.listart .itemart:has(+ * :hover){
+  filter: brightness(0.6);
+  transform: translateZ(150px) rotateY(-40deg);
+}
+
+.listart .itemart:has(+ *+ * :hover){
+  filter: brightness(0.4);
+  transform: translateZ(70px) rotateY(-20deg);
+}
+.listart .itemart:has(+ *+ *+ * :hover){
+  filter: brightness(0.5);
+  transform: translateZ(30px) rotateY(-10deg);
+}
+
+/*cube*/
+
+.artcube {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 400px;
+  width: 100%;
+	perspective: 1000px;
+	overflow: hidden;
+}
+
+.scene {
+	width: 200px;
+	height: 200px;
+	transform-style: preserve-3d;
+	animation: rotate 20s infinite linear;
+}
+
+.cube {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transform-style: preserve-3d;
+}
+
+.face {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	background-size: cover;
+	background-position: center;
+	opacity: 0.8;
+	border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.face>img {
+  width: 100%;
+	height: 100%;
+}
+
+.front {
+	transform: rotateY(0deg) translateZ(100px);
+}
+.right {
+	transform: rotateY(90deg) translateZ(100px);
+}
+.back {
+	transform: rotateY(180deg) translateZ(100px);
+}
+.left {
+	transform: rotateY(-90deg) translateZ(100px);
+}
+.top {
+	transform: rotateX(90deg) translateZ(100px);
+}
+.bottom {
+	transform: rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotateX(0) rotateY(0);
+	}
+	100% {
+		transform: rotateX(360deg) rotateY(360deg);
+	}
+}
+
+.text-container.art{
+  background-color: transparent;
+  border: #49525c 3px solid;
+}
+
+
+.banner{
+  height: 500px;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.banner .slider{
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 30%;
+  left: calc(50% - 100px);
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  animation: autoRun 30s linear infinite;
+}
+
+.banner .slider .item{
+  position: absolute;
+  inset: 0 0 0 0;
+  transform: 
+    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+    translateZ(550px);
+}
+
+.banner .slider .item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes autoRun {
+  from {
+		transform: perspective(1000px) rotateY(0deg);
+	}
+	to {
+		transform: perspective(1000px) rotateY(360deg);
+	}
+}

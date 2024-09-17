@@ -1,0 +1,11 @@
+# Django is the web framework used for the project
+Django>=3.2,<5.0
+
+# fpdf and fpdf2 are required for generating PDF files
+# fpdf: A simple PDF generation library, used in older projects.
+# fpdf2: An updated and more feature-rich version of fpdf, required for more advanced PDF generation tasks.
+fpdf==1.7.2
+fpdf2>=2.5.5,<3.0
+
+# Additional packages that might be needed for the project
+requests>=2.25.1

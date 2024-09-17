@@ -1,0 +1,158 @@
+{% extends "STHENOS.html" %}
+
+{% block content %}
+{% include "headers.html" %}
+{% include "navBar.html" %}
+
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'calculators.css' %}">
+{% endblock %}
+
+
+<div class="text-container">
+    <h3>Input Details</h3>
+    
+        <div class="radio-group" style="display: none;">
+            <label>
+                <input type="radio" class="input-field gender" id="male" name="gender" value="male">
+                Male
+            </label>
+            <label>
+                <input type="radio" class="input-field gender" id="female" name="gender" value="female">
+                Female
+            </label>
+        </div>
+
+    <div class="input-container">
+        <div class="input-group" style="display: none;">
+            <label for="age">Age:</label>
+            <input type="number" class="input-field numeric" id="age" min="0">
+        </div>
+
+        <div class="input-group">
+            <label for="height">Height&nbsp;(cm):</label>
+            <input type="number" class="input-field numeric" id="height" step="1" min="40" max="300" value="{{height}}" title="Needed to calculate the  BMI / IMC, Also the only requirement for Perry, Berkhan and Kouri formulas">
+        </div>
+
+        <div class="input-group">
+            <label for="weight">Weight&nbsp;(kg):</label>
+            <input type="number" class="input-field numeric" id="weight" step="0.1" min="30"  max="600" value="{{weight}}"title="Needed to calculate the  BMI / IMC">
+        </div>
+
+        <div class="input-group">
+            <label for="wrist">Wrist&nbsp;Circumference&nbsp;(cm):</label>
+            <input type="number" class="input-field numeric" id="wrist" step="1" min="5"  max="50"  value="{{wristC}}"title="Needed for Casey Butt formula">
+        </div>
+
+        <div class="input-group">
+            <label for="ankle">Ankle&nbsp;Circumference&nbsp;(cm):</label>
+            <input type="number" class="input-field numeric" id="ankle" step="1" min="5"  max="50" value="{{ankleC}}"title="Needed for Casey Butt formula">
+        </div>
+
+        <div class="input-group">
+            <label for="bodyfat">Body&nbsp;Fat&nbsp;Percentage&nbsp;(%):</label>
+            <input type="number" class="input-field numeric" id="bodyfat" step="1" min="0" max="80" value="{{bodyFat}}" title="Optional for Casey Butt formula">
+        </div>
+        
+    </div>
+</div>
+
+<div class="text-container resultscalc">
+
+    <div class="result-container">
+        <h5>Results</h5>
+        <p id="imc-result" class="result-field">BMI / IMC (weight/height<sup>2</sup>): </p>
+        <h5>Max Potential</h5>
+        <p id="marc-perry" class="result-field">Marc Perry Formula: </p>
+        <p id="martin-berkhan" class="result-field">Martin Berkhan Formula: </p>
+        <p id="elena-kouri" class="result-field">Elena Kouri Formula: </p>
+        <p id="casey-butt" class="result-field">Casey Butt Formula: </p>
+    </div>
+    <div class="img-container">
+        <img src="{% static 'BMI.png' %}">
+        <img src="{% static 'cursor.png' %}" alt="Cursor" id="cursor" class="cursor">
+    </div>
+    
+
+</div>
+
+<div class="text-container">
+
+    <div class="container">
+
+        <div class="content">
+            <h3>Estimating Your Natural Muscle Mass Potential</h3>
+            <p>
+                Understanding how much muscle mass you can realistically achieve naturally—without resorting to performance-enhancing drugs like anabolic steroids or selective androgen receptor modulators (SARMs)—is a subject of significant interest within the fitness community. Several experts have developed empirical formulas to estimate your maximum potential body weight, especially when targeting a specific body fat percentage. These formulas consider various aspects of your body's composition and geometry, providing insights into your potential muscular development.
+            </p>
+            <h5>Factors Influencing These Estimates</h5>
+            <p>
+                The accuracy of these formulas can vary depending on individual factors such as:
+            </p>
+            <ul>
+                <li><strong>Genetics:</strong> Your inherent potential for muscle growth.</li>
+                <li><strong>Anthropometrics:</strong> Your body's geometry, including bone structure and muscle insertions.</li>
+                <li><strong>Health and Exercise Tolerance:</strong> How well your body responds to and recovers from weight training.</li>
+                <li><strong>Endocrine System Characteristics:</strong> Hormonal balance and its role in muscle growth.</li>
+            </ul>
+            <p>
+                While these formulas provide valuable estimates, it's crucial to remember that they are based on statistical averages and empirical observations. Individual results may vary, and the most effective way to reach your potential is through consistent training, proper nutrition, and maintaining a healthy lifestyle.
+            </p>
+        </div>
+
+        <div class="formula">
+            <h5>Marc Perry Formula</h5>
+            <p>
+                Marc Perry's formula estimates your maximum body weight assuming 5% body fat an idealized scenario. This formula uses your height in inches as its primary input:
+            </p>
+            <p><code>PDC Max (lbs) = (((Height (in) - 70) * 5) + 160)/0.95</code></p>
+        </div>
+
+        <div class="formula">
+            <h5>Martin Berkhan Formula</h5>
+            <p>
+                Martin Berkhan, known for popularizing intermittent fasting in the fitness world, developed a simple formula to estimate your maximum body weight at 5% body fat. This formula is straightforward and relies solely on your height in centimeters:
+            </p>
+            <p><code>PDC Max = Height (cm) - 100</code></p>
+        </div>
+
+  
+
+        <div class="formula">
+            <h5>Elena Kouri Formula</h5>
+            <p>
+                Elena Kouri’s formula provides an estimate of your maximum potential body weight at 5% body fat by considering your height in meters:
+            </p>
+            <p>
+                <code>PDC Max = H<sup>2</sup> × 26 - (6.1 × (1.8 - H))<br>
+                    Where:<br>
+                    H = Height (in meters)
+                </code>
+            </p>
+        </div>
+
+        <div class="formula">
+            <h5>Casey Butt Formula</h5>
+            <p>
+                Dr. Casey Butt is widely recognized for his research into natural bodybuilding limits. His formula considers multiple factors, including your height, wrist circumference, ankle circumference, and body fat percentage, to estimate your maximum lean body mass:
+            </p>
+            <p>
+                <code>
+                    PDC Max (lbs) = H<sup>1.5</sup> × (W<sup>0.5</sup>) / 22.6670 + A<sup>0.5</sup> / 17.0104 × [(224 / %bf) + 1]<br>
+                    Where:<br>
+                    M = Maximum Lean Body Mass<br>
+                    H = Height (in inches)<br>
+                    W = Wrist circumference (in inches)<br>
+                    A = Ankle circumference at the smallest point (in inches)<br>
+                    %bf = Desired body fat percentage (as a decimal)
+                </code>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script defer src="{% static 'calculators.js' %}"></script>
+
+{% endblock %}

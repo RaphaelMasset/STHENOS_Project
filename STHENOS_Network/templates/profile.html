@@ -1,0 +1,51 @@
+{% extends "STHENOS.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'networkStyles.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% include "headers.html" %}
+    {% include "navBar.html" %}
+    </br>
+    <h1>Profile</h1>
+
+    <div class="profile-container"> 
+        <div id="profile-view">           
+            <b id="profile-name">{{clicked_username}}</b>
+            {% if user.is_authenticated and clicked_username != user.username%} 
+                <button id="follow-button" data-username="{{clicked_username}}">
+                    {%if already_following%}
+                    Unfollow
+                    {%else%}
+                    Follow
+                    {%endif%}
+                </button>
+            {% endif %}
+            <div>
+                <div id="profile-followers">{{follower}} Follower</div>
+                <div id="profile-following">{{follows}} Follow</div>
+                <div id="profile-posts">{{page_obj.paginator.count}} Posts</div>
+            </div>
+        </div>
+        {% if user.is_authenticated and clicked_username == user.username%} 
+        <div id="profile-view">           
+            <form method="post" action="{% url 'profile' user.username %}">
+                {% csrf_token %}
+                <div class="form-rows">
+                    {{form}}
+                </div>
+                <button type="submit"
+                        style="width: 100%;">Update personal info</button>
+            </form>  
+        </div>
+        {% endif %}
+    </div>
+    {% include 'post.html'%}
+
+{% endblock %}
+
+{% block scripts %}
+    <script defer src="{% static 'network.js' %}"></script>
+{% endblock %}
