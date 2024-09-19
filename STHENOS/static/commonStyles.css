@@ -1,0 +1,315 @@
+
+*{
+  text-decoration: none;
+}
+
+html {
+  height: 100%;
+  overflow: auto;
+}
+
+body {
+  background:radial-gradient(circle, #1B2735 0%, #090A0F 100%);
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-container {
+  background: #D1E8E2;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 5px 5px;
+  padding: 5px;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-left: 5px solid #38495a;
+}
+
+.form-rows>*{
+  max-height: 40px;
+  justify-content: right;
+  text-align: right;
+  padding: 2px;
+}
+
+input[type="email"],input[type="password"], input[type="number"], input[type="text"],select {
+  -webkit-appearance: none; /* Remove default styling in WebKit browsers */
+  -moz-appearance: none; /* Remove default styling in Firefox */
+  appearance: none; /* Remove default styling in other browsers */
+  padding: 2px;
+  width: 100px;
+  height: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.6); /* Input background with transparency */
+}
+
+select{ 
+  width: 106px;
+  height: 27px;
+}
+
+select:focus {
+  outline: none; /* Remove default focus outline */
+  border-color: #ad1f4e; /* Optional: Change border color on focus */
+}
+
+.theoryTitle{
+  margin: 5px;
+  width: 90%;
+  color: #2C3531;
+  border-bottom: 1px solid #4d2d12;
+
+}
+.text-container p {
+  margin: 5px;
+  color: hsl(153, 9%, 19%);
+}
+a {
+  text-decoration: none;
+  color: #4d2d12;
+}
+a:hover {
+  text-decoration: none;
+}
+
+h1{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+  text-align: center;
+}
+
+h1 { /* h2*/
+  font-size: 36px;
+  color: #f0cfb0; /* Change text color to make shadow stand out */
+  text-shadow: 1px 1px 2px #25180d; /* Horizontal offset, vertical offset, blur radius, color */
+}
+
+h2 {
+  font-size: 28px;
+  margin: -10px 5px 5px 5px;
+}
+
+h3 {
+
+  margin: 5px;
+}
+
+.containerSharedIndex{
+  min-height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100% ; /* Ensure container takes full width */
+  /*max-width: 1200px; /* Optional: Set a max-width if needed */
+  justify-content: center; 
+  align-items: center; /* center VERTICALLY */
+  gap: 5px;
+  transform-style: preserve-3d; 
+  transform: perspective(4000px);
+}
+
+@media (max-width: 854px) { /* Adjust breakpoint as necessary */
+  .containerSharedIndex {
+    min-height: 100px; /* Increased min-height when wrapping is likely */
+  }
+}
+
+@media (max-width: 446px) { /* Adjust breakpoint as necessary */
+  .containerSharedIndex {
+    min-height: 150px; /* Increased min-height when wrapping is likely */
+  }
+}
+
+.hexa{
+  background: radial-gradient(circle, #116466 0%, #2C3531 75%, #116466 90%);
+  display: flex; 
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* center VERTICALLY */
+  color: #f0cfb0;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none
+}
+
+.hexa.hexaNav{
+  font-size: 12px;
+  min-width: 100px; 
+  height: 32px; 
+ /*clip-path: polygon( 96% 0%, 96% 81.25%, 50% 100%, 4% 81.25%, 4% 0%);
+  transform-origin: top;*/
+  background: linear-gradient(0.5turn, #2C3531 0%, #116466 95%);
+  text-align: center;
+}
+.hexa.hexaNav.hexaNavActive {
+  background: linear-gradient(0.5turn, #72887e 0%, #1fabad 95%);
+  color: #ffffff; /* Example text color for active link */
+  font-weight: bold; /* Example font weight for active link */
+}
+.hexa:hover {
+  text-decoration: none;
+  color: #f0cfb0;
+}
+
+
+.hexaNav > a {
+  display: flex; /* Use flexbox to center the content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 100%; /* Make the anchor fill the width of the container */
+  height: 100%; /* Make the anchor fill the height of the container */
+  color: inherit; /* Inherit text color from the parent */
+}
+
+.containerSharedIndex .hexaNav:hover, .forumNav:hover{
+  transform: scale(1.1) translateZ(150px); 
+}
+.containerSharedIndex .hexaNav:hover + *, .forumNav:hover+ *{
+  transform: translateZ(100px) rotateY(25deg); 
+}
+.containerSharedIndex .hexaNav:hover + * + *, .forumNav:hover+ * + *{
+  transform: translateZ(50px) rotateY(10deg);
+}
+.containerSharedIndex .hexaNav:hover + * + * + * , .forumNav:hover+ * + * + *{
+  transform: translateZ(20px);
+}
+.containerSharedIndex .hexaNav:has(+ * :hover), .forumNav:has(+ * :hover){
+  transform: translateZ(100px) rotateY(-25deg); 
+}
+.containerSharedIndex .hexaNav:has(+ *+ * :hover), .forumNav:has(+ * + * :hover){
+  transform: translateZ(50px) rotateY(-10deg);
+}
+.containerSharedIndex .hexaNav:has(+ *+ *+ * :hover), .forumNav:has(+ * + * + * :hover){
+  transform: translateZ(20px) ;
+}
+
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+}
+
+label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.button {
+  background: radial-gradient(circle, #23888a 0%, #415049 105%);
+  color: #f0cfb0;
+  /*color: #925f3380; Prevent text from wrapping */
+  font-size: 20px;
+  cursor: pointer;
+  white-space: nowrap; /* Prevent text from wrapping */
+  border-radius: 5px;
+  padding: 6px;
+}
+
+@media (max-width: 800px) { 
+  .text-container>.theoryTitle{
+    font-size: 1.2rem;
+  }
+  .logbar {
+    justify-content: center; 
+  }
+  .empty-column {
+    flex: 0; /* Empty column takes up remaining space */
+    display: none;
+  }
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; 
+  margin: 5px 20px;
+  width: 100%; 
+  gap: 5px;
+
+}
+
+.empty-column {
+  flex: 1; /* Empty column takes up remaining space */
+}
+
+.titre-container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.logbar {
+  display: flex;
+  gap: 5px;
+  flex: 1; /* Right column takes up remaining space */
+}
+
+.form-group-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.form-group{
+  transform: scale(1.3);
+  display: flex;
+  justify-content: center;
+}
+
+
+.containerStyleBt{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: end;
+
+}
+
+/*
+.button.b1{
+background: radial-gradient(circle, #23888a 0%, #415049 105%);
+color: #925f3380;
+}
+
+.button.b2{
+background:radial-gradient(circle, #7091E6 0%, #3D52A0 92%, #3D52A0 98%);
+color: #ffffff80;
+}
+
+.button.b3{
+background:radial-gradient(circle, #0A21C0 0%, #2C2E3A 90%);
+color: #b3b6d380;
+}*/
+
+.button.b4{
+  color: #cebbaa;
+  background: radial-gradient(ellipse at bottom, #1B2735 20%, #090A0F 100%);
+  overflow: hidden;
+}
+
+#title {
+  color: #FFF;
+  text-align: center;
+  font-weight: 600;
+  font-size: 34px;
+}
+#title span {
+  background: -webkit-linear-gradient(white, #f0cfb0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h4{
+  margin: 5px;
+}

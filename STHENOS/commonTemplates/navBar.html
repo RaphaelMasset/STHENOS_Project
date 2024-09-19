@@ -1,0 +1,38 @@
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'commonStyles.css' %}">
+{% endblock %}
+
+{% block content %}
+<nav class="containerSharedIndex">
+    <div class="hexa hexaNav {% if current_page == 'index' %}hexaNavActive{% endif %}">
+        <a href="{% url 'index' %}">INDEX</a>
+    </div>
+    <div class="hexa hexaNav {% if current_page == 'theory' %}hexaNavActive{% endif %}">
+        <a href="{% url 'theory' %}">THEORY</a>
+    </div>
+    <div class="hexa hexaNav {% if current_page == 'programs' %}hexaNavActive{% endif %}">
+        <a href="{% url 'programs' %}">PROGRAMS</a>
+    </div>
+    <div class="hexa hexaNav {% if current_page == 'calculators' %}hexaNavActive{% endif %}">
+        <a href="{% url 'calculators' %}">CALCULATORS</a>
+    </div>
+    <div class="hexa hexaNav {% if current_page == 'network' %}hexaNavActive{% endif %}">
+        <a href="{% url 'network' %}">NETWORK</a>
+    </div>
+    <div class="hexa hexaNav {% if current_page == 'links' %}hexaNavActive{% endif %}">
+        <a href="{% url 'links' %}">LINKS</a>
+    </div>
+    <div class="hexa hexaNav {% if current_page == 'contact' %}hexaNavActive{% endif %}">
+        <a href="{% url 'contact' %}">CONTACT</a>
+    </div>
+    <div class="hexa hexaNav {% if current_page == 'game' %}hexaNavActive{% endif %}">
+        <a href="{% url 'game' %}">ART & GAMES</a>
+    </div>
+    <div class="hexa hexaNav {% if current_page == 'map' %}hexaNavActive{% endif %}">
+        <a href="{% url 'map' %}">MAP</a>
+    </div>
+    
+</nav>
+{% endblock %}

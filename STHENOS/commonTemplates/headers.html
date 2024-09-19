@@ -1,0 +1,36 @@
+
+<div class="header">
+  <div class="empty-column">
+  </div>
+
+  <div class="titre-container">
+    <div id="title" >
+      <span class="titre">STHENOS Project</span>
+    </div>
+  </div> 
+
+  <nav class="logbar">
+    {% if user.is_authenticated %}
+      <div class="nav-item">
+        <a class="button b4" id="profile" href="{% url 'profile' user.username %}">{{ user.username }}</a>
+       
+      </div>
+      
+      <div class="nav-item">
+        <a class="button b4" href="{% url 'logout' %}">Log Out</a>
+      </div>
+    {% else %}
+      <div class="nav-item">
+        <a class="button b4" href="{% url 'login' %}">Log In</a>
+      </div>
+      <div class="nav-item">
+        <a class="button b4" href="{% url 'register' %}">Register</a>
+      </div>
+    {% endif %}
+  </nav>
+</div>
+
+
+<div id="stars"></div>
+<div id="stars2"></div>
+<div id="stars3"></div>
